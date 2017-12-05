@@ -1,0 +1,576 @@
+<!--{#{% load staticfiles %}#}-->
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ tittle }}</title>
+</head>
+<body>
+{{ welcome }}
+</body>
+</html>-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="../../static/blog/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/blog/css/main.css">
+    <link rel="stylesheet" href="../../static/blog/css/index.css">
+    <!--<link rel="stylesheet" href="../../static/blog/css/">-->
+
+    <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery
+/jquery-1.4.min.js"></script>
+    <script src="../../static/blog/js/jquery.js"></script>
+    <script src="../../static/blog/js/main.js"></script>
+    <script src="../../static/blog/js/bootstrap.min.js"></script>
+    <script src="../../static/blog/js/jquery_color.js"></script>
+    <script src="../../static/blog/js/jquery-rotate.min.js"></script>
+    <script src="../../static/blog/js/index.js"></script>
+    <script>
+
+        function jsonToQueryStringEncoded(obj) {
+            return obj ? Object.keys(obj).sort().map(function (key) {
+                var val = obj[key];
+
+                if (Array.isArray(val)) {
+                    return val.sort().map(function (val2) {
+                        return encodeURIComponent(key) + '=' + encodeURIComponent(val2);
+                    }).join('&');
+                }
+
+                return encodeURIComponent(key) + '=' + encodeURIComponent(val);
+            }).join('&') : '';
+        }
+
+        request_data = {a:11};
+        fetch("/post/1/", {
+            method: "POST",
+            body: jsonToQueryStringEncoded(request_data),
+            credentials: "same-origin",
+            headers: {
+                'Accept': 'application/json, text/plain, text/html, *.*',
+                'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
+            },
+        }).then(function (response) {
+            return response.text();
+        }).then(function (text) {
+            console.log(text);
+        }).catch(function (err) {
+            console.log(err);
+        })
+
+
+        // var JSONobject_index = {
+        //"time_md":"11-06",             //月-日
+        //"time_y":"2017",               //年
+        //    "created_time": .created_time,
+        //    "title": "前端笔记——flex布局",      //标题
+        //    "summary": "2009年，W3C 提出了一种新的方案----Flex 布局，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能。",
+        //    "category": "css",              //分类
+        //    "viewTimes": 0,                //浏览次数
+        //    "commentNumber": 0             //评论数量
+        // };
+
+        //        $(document).ready(function () {
+        //var i = 0;
+        //for (i = 0; i < 7; i++) {
+        //  $(".body_main_left_articleInfo").eq(i).find("span").eq(0).text(.created_time);
+        //$(".body_main_left_articleInfo").eq(i).find("span").eq(1).text(JSONobject_index.time_y);
+        //  $(".body_main_left_articleInfo").eq(i).find("a").eq(0).text(JSONobject_index.title);
+        //  $(".body_main_left_articleInfo").eq(i).find("span").eq(3).text(JSONobject_index.summary);
+        //   $(".body_main_left_articleInfo").eq(i).find("span").eq(5).text(JSONobject_index.category);
+        //  $(".body_main_left_articleInfo").eq(i).find("span").eq(7).text(JSONobject_index.viewTimes.toString());
+        //  $(".body_main_left_articleInfo").eq(i).find("span").eq(9).text(JSONobject_index.commentNumber.toString());
+        //  }
+        // });
+    </script>
+    <script>
+        /*
+AJAX封装函数
+url：系统要读取文件的地址
+fnSucc：一个函数，文件取过来，加载完会调用
+*/
+        function ajax(url, fnSucc, fnFaild) {
+            //1.创建Ajax对象
+            var oAjax = null;
+
+            if (window.XMLHttpRequest) {
+                oAjax = new XMLHttpRequest();
+            }
+            else {
+                oAjax = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+
+            //2.连接服务器
+            oAjax.open('GET', url, true);
+
+            //3.发送请求
+            oAjax.send();
+
+            //4.接收服务器的返回
+            oAjax.onreadystatechange = function () {
+                if (oAjax.readyState == 4) //完成
+                {
+                    if (oAjax.status == 200)  //成功
+                    {
+                        fnSucc(oAjax.responseText);
+                    }
+                    else {
+                        if (fnFaild)
+                            fnFaild(oAjax.status);
+                    }
+                }
+            };
+        }
+    </script>
+    <title>index</title>
+</head>
+<body>
+
+<!--搜索弹出-->
+<!--全屏毛玻璃-->
+<div class="body_glass" onmousewheel="return false;"></div>
+
+<!--搜索-->
+<div class="body_spot_frame">
+    <img src="../../static/blog/img/main/submit.png" alt="submit" class="submit">
+    <input type="text" class="body_spot_frame" value="搜索">
+</div>
+<!--帮助-->
+<div class="body_spot_try">
+    <span style="color: #f3ecec;font-size:20px;margin:10px 10px 10px 10px;opacity: 0;">试一试：</span>
+    <div class="try_text"><span>html</span></div>
+    <div class="try_text"><span>css</span></div>
+    <div class="try_text"><span>javascript</span></div>
+    <div class="try_text"><span>jquery</span></div>
+    <div class="try_text"><span>django</span></div>
+    <div class="try_text"><span>python</span></div>
+    <div class="try_text"><span>Ps</span></div>
+    <div class="try_text"><span>Pr</span></div>
+    <div class="try_text"><span>Ae</span></div>
+    <div class="try_text"><span>Maya</span></div>
+</div>
+
+
+<div class="main_container">
+    <header>
+        <div class="header_options header_options_nochange"></div>
+
+        <a class="header_options_text" href="../base.html">
+            <div class="header_options header_options_change">
+                <span class="header_options_text">首页</span>
+                <span class="header_options_expand">Home</span>
+            </div>
+        </a>
+
+        <a href="#" class="header_options_text">
+            <div class="header_options header_options_change">
+                <span class="header_options_text">博文</span>
+                <span class="header_options_expand">Article</span>
+            </div>
+        </a>
+
+        <!--<div class="header_options header_options_change"><p class="header_options_text">博文</p></div>-->
+        <a href="#" class="header_options_text">
+            <div class="header_options header_options_change">
+                <span class="header_options_text">订阅</span>
+                <span class="header_options_expand">RSS</span>
+            </div>
+        </a>
+
+        <a href="#" class="header_options_text">
+            <div class="header_options header_options_change">
+                <span class="header_options_text">后台管理</span>
+                <span class="header_options_expand">Manage</span>
+            </div>
+        </a>
+
+        <a href="about.html" class="header_options_text">
+            <div class="header_options header_options_change">
+                <span class="header_options_text">关于我们</span>
+                <span class="header_options_expand">About Us</span>
+            </div>
+        </a>
+
+        <div class="header_options header_options_nochange"><p class="header_options_text"></p></div>
+        <div class="header_options header_options_change spot header_options_nochange"><img
+                src="../../static/blog/img/main/header_option_spot.png" alt="spot" id="header_option_spot"></div>
+    </header>
+
+    <div class="body">
+
+        <!--滚动图-->
+        <div class="body_display">
+
+            <div class="carousel slide" id="carousel-247862">
+
+                <div class="carousel-inner">
+                    <ol class="carousel-indicators">
+                        <li data-slide-to="0" data-target="#carousel-247862">
+                        </li>
+                        <li data-slide-to="1" data-target="#carousel-247862" class="active">
+                        </li>
+                        <li data-slide-to="2" data-target="#carousel-247862">
+                        </li>
+                    </ol>
+                    <div class="item">
+                        <img alt="" src="../../static/blog/img/index/display_1.jpg" class="img-responsive"
+                             style="width:100%;"/>
+                        <div class="carousel-caption">
+                            <h4>
+
+                            </h4>
+                            <p>
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item active">
+                        <img alt="" src="../../static/blog/img/index/display_2.jpg" class="img-responsive"
+                             style="width:100%;"/>
+                        <div class="carousel-caption">
+                            <h4>
+
+                            </h4>
+                            <p>
+
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <img alt="" src="../../static/blog/img/index/display_3.jpg" class="img-responsive"
+                             style="width:100%;"/>
+                        <div class="carousel-caption">
+                            <h4>
+
+                            </h4>
+                            <p>
+
+                            </p>
+                        </div>
+                    </div>
+                    <a class="left carousel-control" href="#carousel-247862" data-slide="prev"><span
+                            class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control"
+                                                                                    href="#carousel-247862"
+                                                                                    data-slide="next"><span
+                        class="glyphicon glyphicon-chevron-right"></span></a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="body_main">
+            <!--博文简介-->
+            <div class="body_main_left">
+                <div data-scroll-reveal="ease-in-out over 0.8s after 0.3s" class="body_main_left_articleInfo">
+                    <div class="articleInfo_time">
+                        <div class="articleInfo_time_nyr">
+                            <span class="test"><nobr>11-13</nobr></span>
+                            <span>2017</span>
+                        </div>
+                    </div>
+
+                    <div class="articleInfo_timeline">
+                        <div class="articleInfo_timeline_line"></div>
+                        <div class="articleInfo_timeline_point"></div>
+                    </div>
+
+                    <div class="articleInfo_info">
+                        <div class="articleInfo_info_rmation">
+                            <span class="articleInfo_info_rmation_title"><a href=detail.html
+                                                                            class="articleInfo_info_rmation">后台笔记——创建Django应用</a></span>
+                            <span class="articleInfo_info_rmation_summary">外层的根目录仅仅是项目的一个容器。它的命名对Django无关紧要；你可以把它重新命名为任何你喜欢的名字……</span>
+                            <div style="display: flex;flex-direction: row;">
+                                <span class="articleInfo_info_rmation_under">分类 /&nbsp;<span>css</span></span>
+                                <span class="articleInfo_info_rmation_under">浏览次数 /&nbsp;<span>0</span></span>
+                                <span class="articleInfo_info_rmation_under">评论数量 /&nbsp;<span>0</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-scroll-reveal="ease-in-out over 0.8s after 0.3s" class="body_main_left_articleInfo">
+                    <div class="articleInfo_time">
+                        <div class="articleInfo_time_nyr">
+                            <span><nobr>11-13</nobr></span>
+                            <span>2017</span>
+                        </div>
+                    </div>
+
+                    <div class="articleInfo_timeline">
+                        <div class="articleInfo_timeline_line"></div>
+                        <div class="articleInfo_timeline_point"></div>
+                    </div>
+
+                    <div class="articleInfo_info">
+                        <div class="articleInfo_info_rmation">
+                            <span class="articleInfo_info_rmation_title"><a href="#" class="articleInfo_info_rmation">后台笔记——创建Django应用</a></span>
+                            <span class="articleInfo_info_rmation_summary">外层的根目录仅仅是项目的一个容器。它的命名对Django无关紧要；你可以把它重新命名为任何你喜欢的名字……</span>
+                            <div style="display: flex;flex-direction: row;">
+                                <span class="articleInfo_info_rmation_under">分类 /&nbsp;<span>css</span></span>
+                                <span class="articleInfo_info_rmation_under">浏览次数 /&nbsp;<span>0</span></span>
+                                <span class="articleInfo_info_rmation_under">评论数量 /&nbsp;<span>0</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-scroll-reveal="ease-in-out over 0.8s after 0.3s" class="body_main_left_articleInfo">
+                    <div class="articleInfo_time">
+                        <div class="articleInfo_time_nyr">
+                            <span><nobr>11-13</nobr></span>
+                            <span>2017</span>
+                        </div>
+                    </div>
+
+                    <div class="articleInfo_timeline">
+                        <div class="articleInfo_timeline_line"></div>
+                        <div class="articleInfo_timeline_point"></div>
+                    </div>
+
+                    <div class="articleInfo_info">
+                        <div class="articleInfo_info_rmation">
+                            <span class="articleInfo_info_rmation_title"><a href="#" class="articleInfo_info_rmation">后台笔记——创建Django应用</a></span>
+                            <span class="articleInfo_info_rmation_summary">外层的根目录仅仅是项目的一个容器。它的命名对Django无关紧要；你可以把它重新命名为任何你喜欢的名字……</span>
+                            <div style="display: flex;flex-direction: row;">
+                                <span class="articleInfo_info_rmation_under">分类 /&nbsp;<span>css</span></span>
+                                <span class="articleInfo_info_rmation_under">浏览次数 /&nbsp;<span>0</span></span>
+                                <span class="articleInfo_info_rmation_under">评论数量 /&nbsp;<span>0</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-scroll-reveal="ease-in-out over 0.8s after 0.3s" class="body_main_left_articleInfo">
+                    <div class="articleInfo_time">
+                        <div class="articleInfo_time_nyr">
+                            <span><nobr>11-13</nobr></span>
+                            <span>2017</span>
+                        </div>
+                    </div>
+
+                    <div class="articleInfo_timeline">
+                        <div class="articleInfo_timeline_line"></div>
+                        <div class="articleInfo_timeline_point"></div>
+                    </div>
+
+                    <div class="articleInfo_info">
+                        <div class="articleInfo_info_rmation">
+                            <span class="articleInfo_info_rmation_title"><a href="#" class="articleInfo_info_rmation">后台笔记——创建Django应用</a></span>
+                            <span class="articleInfo_info_rmation_summary">外层的根目录仅仅是项目的一个容器。它的命名对Django无关紧要；你可以把它重新命名为任何你喜欢的名字……</span>
+                            <div style="display: flex;flex-direction: row;">
+                                <span class="articleInfo_info_rmation_under">分类 /&nbsp;<span>css</span></span>
+                                <span class="articleInfo_info_rmation_under">浏览次数 /&nbsp;<span>0</span></span>
+                                <span class="articleInfo_info_rmation_under">评论数量 /&nbsp;<span>0</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-scroll-reveal="ease-in-out over 0.8s after 0.3s" class="body_main_left_articleInfo">
+                    <div class="articleInfo_time">
+                        <div class="articleInfo_time_nyr">
+                            <span><nobr>11-13</nobr></span>
+                            <span>2017</span>
+                        </div>
+                    </div>
+
+                    <div class="articleInfo_timeline">
+                        <div class="articleInfo_timeline_line"></div>
+                        <div class="articleInfo_timeline_point"></div>
+                    </div>
+
+                    <div class="articleInfo_info">
+                        <div class="articleInfo_info_rmation">
+                            <span class="articleInfo_info_rmation_title"><a href="#" class="articleInfo_info_rmation">后台笔记——创建Django应用</a></span>
+                            <span class="articleInfo_info_rmation_summary">外层的根目录仅仅是项目的一个容器。它的命名对Django无关紧要；你可以把它重新命名为任何你喜欢的名字……</span>
+                            <div style="display: flex;flex-direction: row;">
+                                <span class="articleInfo_info_rmation_under">分类 /&nbsp;<span>css</span></span>
+                                <span class="articleInfo_info_rmation_under">浏览次数 /&nbsp;<span>0</span></span>
+                                <span class="articleInfo_info_rmation_under">评论数量 /&nbsp;<span>0</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-scroll-reveal="ease-in-out over 0.8s after 0.3s" class="body_main_left_articleInfo">
+                    <div class="articleInfo_time">
+                        <div class="articleInfo_time_nyr">
+                            <span><nobr>11-13</nobr></span>
+                            <span>2017</span>
+                        </div>
+                    </div>
+
+                    <div class="articleInfo_timeline">
+                        <div class="articleInfo_timeline_line"></div>
+                        <div class="articleInfo_timeline_point"></div>
+                    </div>
+
+                    <div class="articleInfo_info">
+                        <div class="articleInfo_info_rmation">
+                            <span class="articleInfo_info_rmation_title"><a href="#" class="articleInfo_info_rmation">后台笔记——创建Django应用</a></span>
+                            <span class="articleInfo_info_rmation_summary">外层的根目录仅仅是项目的一个容器。它的命名对Django无关紧要；你可以把它重新命名为任何你喜欢的名字……</span>
+                            <div style="display: flex;flex-direction: row;">
+                                <span class="articleInfo_info_rmation_under">分类 /&nbsp;<span>css</span></span>
+                                <span class="articleInfo_info_rmation_under">浏览次数 /&nbsp;<span>0</span></span>
+                                <span class="articleInfo_info_rmation_under">评论数量 /&nbsp;<span>0</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-scroll-reveal="ease-in-out over 0.8s after 0.3s" class="body_main_left_articleInfo">
+                    <div class="articleInfo_time">
+                        <div class="articleInfo_time_nyr">
+                            <span><nobr>11-13</nobr></span>
+                            <span>2017</span>
+                        </div>
+                    </div>
+
+                    <div class="articleInfo_timeline">
+                        <div class="articleInfo_timeline_line"></div>
+                        <div class="articleInfo_timeline_point"></div>
+                    </div>
+
+                    <div class="articleInfo_info">
+                        <div class="articleInfo_info_rmation">
+                            <span class="articleInfo_info_rmation_title"><a href="#" class="articleInfo_info_rmation">后台笔记——创建Django应用</a></span>
+                            <span class="articleInfo_info_rmation_summary">外层的根目录仅仅是项目的一个容器。它的命名对Django无关紧要；你可以把它重新命名为任何你喜欢的名字……</span>
+                            <div style="display: flex;flex-direction: row;">
+                                <span class="articleInfo_info_rmation_under">分类 /&nbsp;<span>css</span></span>
+                                <span class="articleInfo_info_rmation_under">浏览次数 /&nbsp;<span>0</span></span>
+                                <span class="articleInfo_info_rmation_under">评论数量 /&nbsp;<span>0</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <script src="../../static/blog/js/scrollReveal.js"></script>
+            <script>
+                if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))) {
+                    (function () {
+                        window.scrollReveal = new scrollReveal({reset: true});
+                    })();
+                }
+                ;
+            </script>
+
+
+            <!--导览-->
+            <div class="body_main_right">
+                <!--列表-->
+                <div class="body_main_right_list">
+
+                    <div style="margin-bottom: -10px;display: flex">
+                        <img src="../../static/blog/img/index/list.png" alt="list" class="list">
+                        <span class="list_text">分类</span>
+                    </div>
+
+                    <hr/>
+                    <div class="list_head list_head1">
+                        <div class="spread"></div>
+                        <span class="list_head_text web" id="test">前端</span>
+                    </div>
+                    <ul class="list web_list">
+                        <li><a href="#">html</a></li>
+                        <li><a href="#">css</a></li>
+                        <li><a href="#">javascript</a></li>
+                        <li><a href="#">jquery</a></li>
+                    </ul>
+
+                    <div class="list_head list_head2">
+                        <div class="spread"></div>
+                        <span class="list_head_text backend">后端</span>
+                    </div>
+                    <ul class="list backend_list">
+                        <li><a href="#">Django</a></li>
+                        <li><a href="#">python</a></li>
+                    </ul>
+
+                    <div class="list_head list_head3">
+                        <div class="spread"></div>
+                        <span class="list_head_text design">设计</span>
+                    </div>
+                    <ul class="list design_list">
+                        <li><a href="#">Photoshop</a></li>
+                        <li><a href="#">Premiere</a></li>
+                        <li><a href="#">After Effects</a></li>
+                        <li><a href="#">Autodesk Maya</a></li>
+                    </ul>
+
+                    <div class="list_head list_head4">
+                        <div class="spread"></div>
+                        <span class="list_head_text other">其他</span>
+                    </div>
+                    <ul class="list other_list">
+                        <li><a href="#">I</a></li>
+                        <li><a href="#">don't</a></li>
+                        <li><a href="#">know</a></li>
+                        <li><a href="#">what</a></li>
+                        <li><a href="#">to</a></li>
+                        <li><a href="#">say</a></li>
+                    </ul>
+
+                </div>
+
+                <!--标签-->
+                <div class="body_main_right_label">
+                    <div style="margin-bottom: -10px;display: flex">
+                        <img src="../../static/blog/img/index/label.png" alt="label" class="label">
+                        <span class="list_text">标签</span>
+                    </div>
+                    <hr>
+                    <div class="label_container_row">
+                        <a href="#" class="labels_link">
+                            <div class="labels labels_color1"><span>html</span></div>
+                        </a>
+                        <a href="#" class="labels_link">
+                            <div class="labels labels_color2"><span>css</span></div>
+                        </a>
+                        <a href="#" class="labels_link">
+                            <div class="labels labels_color3"><span>javascript</span></div>
+                        </a>
+                        <a href="#" class="labels_link">
+                            <div class="labels labels_color4"><span>jquery</span></div>
+                        </a>
+                        <a href="#" class="labels_link">
+                            <div class="labels labels_color2"><span>Django</span></div>
+                        </a>
+                        <a href="" class="labels_link">
+                            <div class="labels labels_color1"><span>python</span></div>
+                        </a><a href="" class="labels_link">
+                        <div class="labels labels_color4"><span>Ps</span></div>
+                    </a><a href="" class="labels_link">
+                        <div class="labels labels_color3"><span>Pr</span></div>
+                    </a><a href="" class="labels_link">
+                        <div class="labels labels_color1"><span>Maya</span></div>
+                    </a><a href="" class="labels_link">
+                        <div class="labels labels_color2"><span>Ae</span></div>
+                    </a><a href="" class="labels_link">
+                        <div class="labels labels_color3"><span>flex</span></div>
+                    </a><a href="" class="labels_link">
+                        <div class="labels labels_color2"><span>rotate</span></div>
+                    </a><a href="" class="labels_link">
+                        <div class="labels labels_color4"><span>造轮子</span></div>
+                    </a><a href="" class="labels_link">
+                        <div class="labels labels_color2"><span>后台登录</span></div>
+                    </a>
+                    </div>
+                </div>
+                <!--弹簧-->
+                <div class="body_main_right_spring"></div>
+            </div>
+
+        </div>
+
+    </div>
+    <hr style="opacity: 0.8;margin-left:14%;margin-right:14%">
+    <footer>
+        <div class="footer_down">
+            <p class="footer_copy">&copy;2017 BLOG t.g.s All rights reserved.</p>
+        </div>
+    </footer>
+
+</div>
+
+
+</body>
+</html>

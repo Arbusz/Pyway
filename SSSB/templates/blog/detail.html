@@ -1,0 +1,352 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--<link rel="stylesheet" href="../../static/blog/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="../../static/blog/css/main.css">
+    <link rel="stylesheet" href="../../static/blog/css/article.css">
+    <!--<link rel="stylesheet" href="../../static/blog/css/">-->
+
+    <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery
+/jquery-1.4.min.js"></script>
+    <script src="../../static/blog/js/jquery.js"></script>
+    <script src="../../static/blog/js/main.js"></script>
+    <!--<script src="../../static/blog/js/bootstrap.min.js"></script>-->
+    <script src="../../static/blog/js/jquery_color.js"></script>
+    <script src="../../static/blog/js/jquery-rotate.min.js"></script>
+    <script src="../../static/blog/js/article.js"></script>
+    <title>Article</title>
+    <script>
+        var JSONobject_index={
+            "time_md":"11-06",             //月-日
+            "time_y":"2017",               //年
+            "title":"Flex 布局教程：语法篇",      //标题
+            "author":"A~kuma",              //作者
+            "summary":"2009年，W3C 提出了一种新的方案----Flex 布局，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能。",
+            "category":"css",              //分类
+            "viewTimes":0,                //浏览次数
+            "commentNumber":0             //评论数量
+        };
+
+        $(document).ready(function(){
+            $(".body_main_article_title").text(JSONobject_index.title);
+            $(".body_main_article_category span").text(JSONobject_index.category);
+            $(".body_main_article_time span").text("发布日期："+JSONobject_index.time_y+"-"+JSONobject_index.time_md);
+            $(".body_main_article_author span").text("作者："+JSONobject_index.author);
+            $(".body_main_article_view span").text("阅读量："+JSONobject_index.viewTimes);
+            $(".body_main_article_footer_data_viewTime").text("阅读("+JSONobject_index.viewTimes+")");
+            $(".body_main_article_footer_data_commentNum").text("评论("+JSONobject_index.commentNumber+")");
+        });
+    </script>
+    <!--<script>-->
+        <!--function loadXMLDoc()-->
+        <!--{-->
+            <!--var xmlhttp;-->
+            <!--if (window.XMLHttpRequest)-->
+            <!--{-->
+                <!--//  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码-->
+                <!--xmlhttp=new XMLHttpRequest();-->
+            <!--}-->
+            <!--else-->
+            <!--{-->
+                <!--// IE6, IE5 浏览器执行代码-->
+                <!--xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");-->
+            <!--}-->
+            <!--xmlhttp.onreadystatechange=function()-->
+            <!--{-->
+                <!--if (xmlhttp.readyState==4 && xmlhttp.status==200)-->
+                <!--{-->
+                    <!--document.getElementsByClassName("body_main_article_text").innerHTML=xmlhttp.responseText;-->
+                <!--}-->
+            <!--}-->
+            <!--xmlhttp.open("GET","/text/article.txt",true);-->
+            <!--xmlhttp.send();-->
+        <!--}-->
+    <!--</script>-->
+</head>
+<body>
+
+<!--全屏毛玻璃-->
+<div class="body_glass" onmousewheel="return false;"></div>
+<!--搜索-->
+<div class="body_spot_frame">
+    <img src="../../static/blog/img/main/submit.png" alt="submit" class="submit">
+    <input type="text" class="body_spot_frame" value="搜索">
+</div>
+<!--帮助-->
+<div class="body_spot_try">
+    <span style="color: white;font-size:20px;margin:10px 10px 10px 10px;opacity: 0;">试一试：</span>
+    <div class="try_text"><span>html</span></div>
+    <div class="try_text"><span>css</span></div>
+    <div class="try_text"><span>javascript</span></div>
+    <div class="try_text"><span>jquery</span></div>
+    <div class="try_text"><span>django</span></div>
+    <div class="try_text"><span>python</span></div>
+    <div class="try_text"><span>Ps</span></div>
+    <div class="try_text"><span>Pr</span></div>
+    <div class="try_text"><span>Ae</span></div>
+    <div class="try_text"><span>Maya</span></div>
+</div>
+<!--main-->
+<div class="main_container">
+    <!--导航栏-->
+    <header>
+        <div class="header_options header_options_nochange"></div>
+
+        <a class="header_options_text" href="../base.html">
+            <div class="header_options header_options_change">
+                <span class="header_options_text">首页</span>
+                <span class="header_options_expand">Home</span>
+            </div>
+        </a>
+
+        <a href="index.html" class="header_options_text">
+            <div class="header_options header_options_change">
+                <span class="header_options_text">博文</span>
+                <span class="header_options_expand">Article</span>
+            </div>
+        </a>
+
+        <!--<div class="header_options header_options_change"><p class="header_options_text">博文</p></div>-->
+        <a href="#" class="header_options_text">
+            <div class="header_options header_options_change">
+                <span class="header_options_text">订阅</span>
+                <span class="header_options_expand">RSS</span>
+            </div>
+        </a>
+
+        <a href="#" class="header_options_text">
+            <div class="header_options header_options_change">
+                <span class="header_options_text">后台管理</span>
+                <span class="header_options_expand">Manage</span>
+            </div></a>
+
+        <a href="about.html" class="header_options_text">
+            <div class="header_options header_options_change">
+                <span class="header_options_text">关于我们</span>
+                <span class="header_options_expand">About Us</span>
+            </div></a>
+
+        <div class="header_options header_options_nochange"><p class="header_options_text"></p></div>
+        <div class="header_options header_options_change spot header_options_nochange" ><img src="../../static/blog/img/main/header_option_spot.png" alt="spot" id="header_option_spot"></div>
+    </header>
+    <!--博客内容-->
+    <div class="body">
+        <div class="body_main">
+            <div class="body_main_article">
+
+                <!--文章头部-->
+                <h1 class="body_main_article_title" style="font-size:35px;">Flex 布局教程：语法篇</h1>
+                <div style="display: flex;flex-direction: row;">
+                    <div class="body_main_article_category"><span></span></div>
+                    <div class="body_main_article_time"><span></span></div>
+                    <div class="body_main_article_author"><span></span></div>
+                    <div class="body_main_article_view"><span></span></div>
+                </div>
+                <hr>
+
+                <!--文章内容-->
+                <div class="body_main_article_text">
+                    <p> 布局的传统解决方案，基于盒状模型，依赖 display 属性 + position属性 + float属性。它对于那些特殊布局非常不方便，比如，垂直居中就不容易实现。</p>
+                    <p> 2009年，W3C 提出了一种新的方案----Flex 布局，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能。</p>
+                    <p> Flex 布局将成为未来布局的首选方案。本文介绍它的语法，下一篇文章给出常见布局的 Flex 写法。网友 JailBreak 为本文的所有示例制作了 Demo，也可以参考。</p>
+                    <p>以下内容主要参考了下面两篇文章：A Complete Guide to Flexbox 和 A Visual Guide to CSS3 Flexbox Properties。</p>
+                    <h2>一、Flex 布局是什么？</h2>
+                    <p>Flex 是 Flexible Box 的缩写，意为"弹性布局"，用来为盒状模型提供最大的灵活性。</p>
+                    <p>任何一个容器都可以指定为 Flex 布局。<br/>
+                        .box{<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;display: flex;<br/>
+                        }</p>
+                    <p>行内元素也可以使用 Flex 布局。<br/>
+                        .box{<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;display: inline-flex;<br/>
+                        }</p>
+                    <p>Webkit 内核的浏览器，必须加上-webkit前缀。<br/>
+                        .box{<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;display: -webkit-flex; /* Safari */<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;display: flex;<br/>
+                        }</p>
+                    <p>注意，设为 Flex 布局以后，子元素的float、clear和vertical-align属性将失效。</p>
+                    <h2>二、基本概念</h2>
+                    <p>采用 Flex 布局的元素，称为 Flex 容器（flex container），简称"容器"。它的所有子元素自动成为容器成员，称为 Flex 项目（flex item），简称"项目"。</p>
+                    <p>容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做main start，结束位置叫做main end；交叉轴的开始位置叫做cross start，结束位置叫做cross end。</p>
+                    <p>项目默认沿主轴排列。单个项目占据的主轴空间叫做main size，占据的交叉轴空间叫做cross size。</p>
+                    <h2>三、容器的属性</h2>
+                    <p>以下6个属性设置在容器上。</p>
+                    <p>&nbsp;&nbsp;flex-direction<br/>
+                        &nbsp;&nbsp;flex-wrap<br/>
+                        &nbsp;&nbsp;flex-flow<br/>
+                        &nbsp;&nbsp;justify-content<br/>
+                        &nbsp;&nbsp;align-items<br/>
+                        &nbsp;&nbsp;align-content
+                    </p>
+                    <p>flex-direction属性决定主轴的方向（即项目的排列方向）。<br/>
+                        .box {<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;flex-direction: row | row-reverse | column | column-reverse;<br/>
+                        }</p>
+                    <p>它可能有4个值。</p>
+                    <p>&nbsp;&nbsp;row（默认值）：主轴为水平方向，起点在左端。<br/>
+                        &nbsp;&nbsp;row-reverse：主轴为水平方向，起点在右端。<br/>
+                        &nbsp;&nbsp;column：主轴为垂直方向，起点在上沿。<br/>
+                        &nbsp;&nbsp;column-reverse：主轴为垂直方向，起点在下沿。
+                    </p>
+                    <p></p>
+                    <p></p>
+                </div>
+
+                <!--文章尾部-->
+                <div class="body_main_article_footer">
+                    <div class="body_main_article_footer_lc">
+                        <div><h3 align="center">点赞：0</h3><br><img src="../../static/blog/img/article/like_1.png" alt="like" id="like" onclick="$('#like').attr('src','../../static/blog/img/article/like_2.png');"></div>
+                        <div><h3 align="center">收藏：0</h3><br><img src="../../static/blog/img/article/collect_1.png" alt="collect" id="collect" onclick="$('#collect').attr('src','../../static/blog/img/article/collect_2.png');"></div>
+                    </div>
+
+                    <table class="body_main_article_footer_data">
+                        <tr>
+                            <td class="body_main_article_footer_data_viewTime"><span></span></td>
+                            <td class="body_main_article_footer_data_commentNum"><span></span></td>
+                            <td class="body_main_article_footer_data_share"><span>分享</span></td>
+                            <td class="body_main_article_footer_data_paint"><span>打印</span></td>
+                            <td class="body_main_article_footer_data_report"><span>举报</span></td>
+                        </tr>
+                    </table>
+
+                    <hr style="width:100%;border:1px dashed whitesmoke">
+                    <a href="" id="link_pre">上一篇：无</a>
+                    <a href="" id="link_next">下一篇：无</a>
+                    <!--<div class="body_main_article_footer_data">-->
+                        <!--<div class="body_main_article_footer_data_viewTime"><span></span></div>-->
+                        <!--<div class="body_main_article_footer_data_commentNum"><span></span></div>-->
+                        <!--&lt;!&ndash;<div class="body_main_article_footer_data_"><span></span></div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div class="body_main_article_view"><span></span></div>&ndash;&gt;-->
+                    <!--</div>-->
+                </div>
+                <hr>
+
+
+                <!--评论-->
+                <div class="body_main_article_comment">
+                    <img src="../../static/blog/img/article/tourist.png" alt="tourist" class="body_main_article_comment_tourist">
+                    <!--<span>游客</span>-->
+                    <form action="" style="flex: 1">
+                        <textarea rows="5" cols="30" class="body_main_article_comment_text">请在这里留下您的评论</textarea><br/>
+                        <input type="submit" value="提交" id="submit">
+                        <input type="reset" value="取消" id="cancel">
+                    </form>
+                </div>
+                <!--<hr/>-->
+                <div class="body_main_article_comment">
+                    <img src="../../static/blog/img/article/tourist.png" alt="tourist" class="body_main_article_comment_tourist">
+                    <span>游客</span>
+                    <div class="body_main_article_comment_text comments"><p>我也同意楼上的观点</p></div>
+                </div>
+                <div class="body_main_article_comment">
+                    <img src="../../static/blog/img/article/tourist.png" alt="tourist" class="body_main_article_comment_tourist">
+                    <span>游客</span>
+                    <div class="body_main_article_comment_text comments"><p>我同意楼上的观点</p></div>
+                </div>
+                <div class="body_main_article_comment">
+                    <img src="../../static/blog/img/article/tourist.png" alt="tourist" class="body_main_article_comment_tourist">
+                    <span>游客</span>
+                    <div class="body_main_article_comment_text comments"><p>我觉得ok</p></div>
+                </div>
+                <!--<p >this is the article</p>-->
+            </div>
+            <!--<div class="body_main_comment">-->
+                <!--<h1>test</h1>-->
+                <!--<p>this is the comment</p>-->
+            <!--</div>-->
+        </div>
+
+        <div class="body_guide fixed">
+            <h2 align="center" style="margin-top: 29px;margin-bottom:29px;">可能感兴趣：</h2>
+            <ul class="list web_list">
+                <li><a href="#">Django</a></li>
+                <li><a href="#">python</a></li>
+                <li><a href="#">PhotoShop</a></li>
+                <li><a href="#">Premiere</a></li>
+                <li><a href="#">After Effects</a></li>
+                <li><a href="#">Autodesk Maya</a></li>
+            </ul>
+        </div>
+
+        <div class="body_guide"></div>
+            <!--<div class="list_head list_head1">-->
+                <!--<div class="spread"></div>-->
+                <!--<span class="list_head_text web">可能感兴趣</span>-->
+            <!--</div>-->
+            <!--<ul class="list web_list">-->
+                <!--<li><a href="#">2017.11</a></li>-->
+                <!--<li><a href="#">2017.10</a></li>-->
+                <!--<li><a href="#">2017.9</a></li>-->
+                <!--<li><a href="#">2017.6</a></li>-->
+                <!--<li><a href="#">2017.5</a></li>-->
+                <!--<li><a href="#">2017.4</a></li>-->
+                <!--<li><a href="#">2017.3</a></li>-->
+                <!--<li><a href="#">2016.12</a></li>-->
+            <!--</ul>-->
+
+            <!--<div class="list_head list_head2">-->
+                <!--<div class="spread"></div>-->
+                <!--<span class="list_head_text backend">按关键词</span>-->
+            <!--</div>-->
+            <!--<ul class="list backend_list">-->
+                <!--<li><a href="#">Django</a></li>-->
+                <!--<li><a href="#">python</a></li>-->
+                <!--<li><a href="#">Photoshop</a></li>-->
+                <!--<li><a href="#">Premiere</a></li>-->
+                <!--<li><a href="#">After Effects</a></li>-->
+                <!--<li><a href="#">Autodesk Maya</a></li>-->
+            <!--</ul>-->
+
+            <!--<div class="list_head list_head3">-->
+                <!--<div class="spread"></div>-->
+                <!--<span class="list_head_text design">按访问量</span>-->
+            <!--</div>-->
+            <!--<ul class="list design_list">-->
+                <!--<li><a href="#">1</a></li>-->
+                <!--<li><a href="#">2</a></li>-->
+                <!--<li><a href="#">3</a></li>-->
+                <!--<li><a href="#">4</a></li>-->
+                <!--<li><a href="#">5</a></li>-->
+                <!--<li><a href="#">6</a></li>-->
+            <!--</ul>-->
+
+            <!--<div class="list_head list_head4">-->
+            <!--<div class="spread"></div>-->
+            <!--<span class="list_head_text other">其他</span>-->
+            <!--</div>-->
+            <!--<ul class="list other_list">-->
+            <!--<li><a href="#">I</a></li>-->
+            <!--<li><a href="#">don't</a></li>-->
+            <!--<li><a href="#">know</a></li>-->
+            <!--<li><a href="#">what</a></li>-->
+            <!--<li><a href="#">to</a></li>-->
+            <!--<li><a href="#">say</a></li>-->
+            <!--</ul>-->
+
+
+    </div>
+    <!--网页尾-->
+
+    <hr style="opacity: 0.8;margin-left:14%;margin-right:14%">
+    <footer>
+        <div class="footer_down">
+            <p class="footer_copy">&copy;2017 BLOG t.g.s All rights reserved.</p>
+        </div>
+    </footer>
+</div>
+
+</body>
+</html>

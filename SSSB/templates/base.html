@@ -1,0 +1,280 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+
+    <!--css-->
+    <link rel="stylesheet" href="../static/blog/css/main.css">
+    <link rel="stylesheet" href="../static/blog/css/home.css">
+
+    <!--js-->
+    <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery/jquery-1.4.min.js"></script>
+    <script src="../static/blog/js/jquery.js"></script>
+    <script src="../static/blog/js/main.js"></script>
+    <!--<script src="../static/blog/js/jquery_color.js"></script>-->
+    <!--<script src="../static/blog/js/jquery-rotate.min.js"></script>-->
+    <script src="../static/blog/js/home.js"></script>
+    <script src='http://www.5iweb.com.cn/statics/../static/blog/js/jquery.1.7.1.min.js'></script>
+
+</head>
+<body>
+
+<div class="body_glass" onmousewheel="return false;"></div>
+
+<!--搜索-->
+<div class="body_spot_frame">
+    <img src="../static/blog/img/main/submit.png" alt="submit" class="submit">
+    <input type="text" class="body_spot_frame" value="搜索">
+</div>
+<!--帮助-->
+<div class="body_spot_try">
+    <span style="color: #f3ecec;font-size:20px;margin:10px 10px 10px 10px;opacity: 0;">试一试：</span>
+    <div class="try_text"><span>html</span></div>
+    <div class="try_text"><span>css</span></div>
+    <div class="try_text"><span>javascript</span></div>
+    <div class="try_text"><span>jquery</span></div>
+    <div class="try_text"><span>django</span></div>
+    <div class="try_text"><span>python</span></div>
+    <div class="try_text"><span>Ps</span></div>
+    <div class="try_text"><span>Pr</span></div>
+    <div class="try_text"><span>Ae</span></div>
+    <div class="try_text"><span>Maya</span></div>
+</div>
+
+
+<div class="main_container">
+    <header>
+        <div class="header_options header_options_nochange"></div>
+
+        <a class="header_options_text" href="#">
+            <div class="header_options header_options_change">
+                <span class="header_options_text">首页</span>
+                <span class="header_options_expand">Home</span>
+            </div>
+        </a>
+
+        <a href="blog/detail.html" class="header_options_text">
+            <div class="header_options header_options_change">
+                <span class="header_options_text">博文</span>
+                <span class="header_options_expand">Article</span>
+            </div></a>
+        <!--<div class="header_options header_options_change"><p class="header_options_text">博文</p></div>-->
+        <a href="#" class="header_options_text">
+            <div class="header_options header_options_change">
+                <span class="header_options_text">订阅</span>
+                <span class="header_options_expand">RSS</span>
+            </div>
+        </a>
+
+        <a href="#" class="header_options_text">
+            <div class="header_options header_options_change">
+                <span class="header_options_text">后台管理</span>
+                <span class="header_options_expand">Manage</span>
+            </div></a>
+
+        <a href="blog/about.html" class="header_options_text">
+            <div class="header_options header_options_change">
+                <span class="header_options_text">关于我们</span>
+                <span class="header_options_expand">About Us</span>
+            </div></a>
+
+        <div class="header_options header_options_nochange"><p class="header_options_text"></p></div>
+        <div class="header_options header_options_change spot header_options_nochange" ><img src="../static/blog/img/main/header_option_spot.png" alt="spot" id="header_option_spot"></div>
+    </header>
+
+
+    <!--home内容-->
+    <!--<div id="slogan">-->
+        <!--<p style="word-spacing: -10px;" id="change">-->
+        <!--<span class="word">This is our&nbsp;</span>-->
+        <!--<span class="change_number word white">0</span>-->
+        <!--<span class="change_number word white">0</span>-->
+        <!--<span class="change_number word white">0</span>-->
+        <!--<span class="change_number word white">0</span>-->
+        <!--<span class="change_number word white">0</span>-->
+        <!--<span class="word ">……</span>-->
+    <!--</p>-->
+        <!--&lt;!&ndash;<div class="body_story_downgif_over"></div>&ndash;&gt;-->
+        <!--<img src="../static/blog/img/home/story.gif" alt="down" class="body_story_downgif">-->
+    <!--</div>-->
+    <div class="body_story">
+        <!--<div class="glass"></div>-->
+        <img src="../static/blog/img/home/story.jpg" alt="story" class="body_story_background" >
+    </div>
+    <div id="slogan" data-text="This is our story……">
+    </div>
+
+
+    <div class="body_did">
+        <!--data-scroll-reveal="enter top over 0.5s and move 100px after 0.5s"-->
+        <span class="body_did_title">WHAT WE DID</span>
+        <hr id="body_did_title_underline" data-scroll-reveal="ease-in-out over 0.8s after 1s" >
+        <span class="body_did_undertitle" data-scroll-reveal="enter bottom over 0.5s and move 100px after 1s">在个人博客的搭建中，我们奋战于……</span>
+        <div class="body_did_image" data-scroll-reveal="enter bottom over 0.5s and move 300px after 1s">
+            <img src="../static/blog/img/home/icon_1.png" alt="html5" class="body_did_img" id="icon_1" >
+            <img src="../static/blog/img/home/icon_2.png" alt="css3" class="body_did_img" id="icon_2" >
+            <img src="../static/blog/img/home/icon_3.png" alt="js" class="body_did_img" id="icon_3" >
+            <img src="../static/blog/img/home/icon_4.png" alt="jquery" class="body_did_img" id="icon_4" >
+            <img src="../static/blog/img/home/icon_5.png" alt="python" class="body_did_img" id="icon_5" >
+            <img src="../static/blog/img/home/icon_6.png" alt="json" class="body_did_img" id="icon_6" >
+        </div>
+
+        <div class="body_did_explain">
+            <p> </p>
+        </div>
+    </div>
+
+
+    <!--<div class="body_three">-->
+        <!--&lt;!&ndash;data-scroll-reveal="enter top over 0.5s and move 100px after 0.5s"&ndash;&gt;-->
+        <!--<span class="body_three_title">WHAT WE WANT</span>-->
+        <!--<hr id="body_three_title_underline" data-scroll-reveal="ease-in-out over 0.8s after 0.5s" >-->
+        <!--<span class="body_three_undertitle" data-scroll-reveal="enter bottom over 0.5s and move 100px after 0.5s">我们希望 艺术，情怀，技术，思想，可以在这里相互碰撞……</span>-->
+        <!--<div class="body_three_container">-->
+            <!--<img src="../static/blog/img/home/photo_1.jpg" alt="photo_1" class="body_three_img" data-scroll-reveal="enter left over 0.5s and move 200px after 0.5s">-->
+            <!--<img src="../static/blog/img/home/photo_2.jpg" alt="photo_2" class="body_three_img" data-scroll-reveal="enter bottom over 0.8s and move 200px after 0.5s">-->
+            <!--<img src="../static/blog/img/home/photo_3.jpg" alt="photo_3" class="body_three_img" data-scroll-reveal="enter right over 0.5s and move 200px after 0.5s">-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <div class="body_blackglass">
+        <!--<div class="body_blackglass_div">-->
+        <span class="body_blackglass_title" >WHAT WE WANT</span>
+        <hr id="body_blackglass_title_underline" data-scroll-reveal="ease-in-out over 0.8s after 1s" >
+        <span class="body_blackglass_undertitle" data-scroll-reveal="enter bottom over 0.5s and move 200px after 1s">我们希望 艺术，情怀，技术，思想，可以在这里相互碰撞……</span>
+        <div class="body_blackglass_down"></div>
+        <!--</div>-->
+    </div>
+
+
+    <div class="body_pictureWall">
+        <span class="body_pictureWall_title">WHAT WE HAVE</span>
+        <div class="body_pictureWall_photos">
+            <div class="body_pictureWall_glass">
+                <!--暗牧-->
+                <div>
+                    <div class="body_pictureWall_glass_text">
+                        <h4>学术</h4>
+                        <p>任何事物的学习都不是一蹴而就的，而是一个长时间积累的过程。<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这里有我们学习网页制作的点点滴滴，这里见证了我们的沉淀与成长。</p>
+                        <div class="button_look"><h4 class="button_text">TAKE A LOOK</h4></div>
+                    </div>
+                    <div class="glass_not"></div>
+                    <div class="body_pictureWall_glass_text">
+                        <h4>摄影</h4>
+                        <p>
+                            每当我们手握相机，照下的不是相片，而是回忆。<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;每一张照片，都是时光的标本，在光和影的陪衬下，被禁锢在时间的框架里，成为陈旧的光景。……
+                        </p>
+                        <div class="button_look"><h4 class="button_text">TAKE A LOOK</h4></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="body_pictureWall_glass_text">
+                        <h4>绘画</h4>
+                        <p>
+                        绘画是视觉上的音乐，我们闭上双眼聆听音乐在意识中的绘画，安静的感受线段所展现的音乐旋律。<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我们抓住每一个绝美的音符，只为了呈现给最好的你。
+                        </p>
+                        <div class="button_look"><h4 class="button_text">TAKE A LOOK</h4></div>
+                    </div>
+                    <div class="body_pictureWall_glass_text">
+                        <h4>风景</h4>
+                        <p>如果可以的话，我会在这个季节里寻找一个夕阳西下的怀抱，即使太阳已经没有了光亮，可那个怀抱永远是属于阳光温暖的。每当夜幕降临时，俩个人身影的依偎便是一天的开始。</p>
+                        <div class="button_look"><h4 class="button_text">TAKE A LOOK</h4></div>
+                    </div>
+                    <div class="body_pictureWall_glass_text">
+                        <h4>旅行</h4>
+                        <p>一辈子是场修行，短的是旅行，长的是人生。<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;出去旅行，不是去看风景，而是去寻回自己——最本真的自己。
+                        </p>
+                        <div class="button_look"><h4 class="button_text">TAKE A LOOK</h4></div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <img src="../static/blog/img/home/learning.jpg" alt="picture_1" >
+                </div>
+                <div><img src="../static/blog/img/home/have.jpg" alt="picture_2" ></div>
+                <div><img src="../static/blog/img/home/photograph.jpg" alt="picture_3" ></div>
+            </div>
+            <div>
+                <div><img src="../static/blog/img/home/paintting.jpg" alt="picture_4" ></div>
+                <div><img src="../static/blog/img/home/dusk.jpg" alt="picture_5" ></div>
+                <div><img src="../static/blog/img/home/travel.jpg" alt="picture_6" ></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="body_sorry">
+        <div id="close"><img src="../static/blog/img/home/close_1.png" alt="close"></div>
+        <div id="cannot_img"><img src="../static/blog/img/home/cannotfind.png" alt="cannot"></div>
+        <p>平台未上线，敬请期待</p>
+        <div id="button_container"><button>确定</button></div>
+    </div>
+
+
+    <!--网页尾-->
+    <footer>
+        <div class="footer_logo">
+            <img src="../static/blog/img/main/Logo.png" alt="Logo" class="footer_logo_img">
+        </div>
+        <div class="footer_follow">r
+            <p style="color: white;font-size: 26px;text-align: center;"><b>Follow Us</b></p>
+            <div style="margin-left: 20px;margin-right:20px;">
+                <img src="../static/blog/img/main/Facebook_1.png" alt="Facebook" class="footer_follow_img" id="follow_img1">
+                <img src="../static/blog/img/main/Twitter_1.png" alt="Twitter" class="footer_follow_img" id="follow_img2">
+                <img src="../static/blog/img/main/Google_1.png" alt="Google" class="footer_follow_img" id="follow_img3">
+                <img src="../static/blog/img/main/Sina_1.png" alt="Sina" class="footer_follow_img" id="follow_img4">
+                <img src="../static/blog/img/main/Wechat_1.png" alt="Wechat" class="footer_follow_img" id="follow_img5">
+                <a href="mailto:1399478309@qq.com"><img src="../static/blog/img/main/Email_1.png" alt="E-mail" class="footer_follow_img" id="follow_img6"></a>
+            </div>
+        </div>
+
+        <div class="footer_link">
+            <!--<p class="footer_link_text">&nbsp;</p>-->
+            <!--<p class="footer_link_text">&nbsp;</p>-->
+            <!--<a href="#" class="footer_link"><p class="footer_link_text"><nobr>不要去触碰</nobr></p></a>-->
+            <!--<a href="#" class="footer_link"><p class="footer_link_text"></nobr>尘封的故事</nobr></p></a>-->
+            <!--<a href="#" class="footer_link"><p class="footer_link_text"></nobr>而是去寻找</nobr></p></a>-->
+            <!--<a href="#" class="footer_link"><p class="footer_link_text"></nobr>我们的未来</nobr></p></a>-->
+            <!--&lt;!&ndash;<p class="footer_link_text"></p>&ndash;&gt;-->
+        </div>
+
+        <div class="footer_right">
+            <div class="footer_up">
+                <img src="../static/blog/img/main/stick.png" alt="stick" class="footer_stick_img">
+            </div>
+
+            <div class="footer_down">
+                <p class="footer_copy">&copy;2017 BLOG t.g.s All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+
+</div>
+<script src="../static/blog/js/scrollReveal.js"></script>
+<script>
+    if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))){
+        (function(){
+            window.scrollReveal = new scrollReveal({reset: true});
+        })();
+    }
+</script>
+</body>
+</html>
